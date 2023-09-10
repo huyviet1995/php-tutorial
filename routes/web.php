@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "Main Page";
+    return view('index', [
+        'name' => 'Viet Dang'
+    ]);
 });
 
 Route::get('/hello', function () {
@@ -27,7 +29,11 @@ Route::get('/hallo', function () {
 });
 
 Route::get('/greet/{name}', function ($name) {
-    return 'Hello ' . $name ."!";
+    return 'Hello ' . $name . "!";
+});
+
+Route::fallback(function () {
+    return 'Still got somewhere...';
 });
 
 // GET
@@ -35,5 +41,3 @@ Route::get('/greet/{name}', function ($name) {
 // PUT
 // PATCH
 // DELETE
-
-
