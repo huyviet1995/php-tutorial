@@ -8,9 +8,11 @@
 
 <body>
     <h1>Hello, this is an index blade template</h1>
-    @isset($name)
-    <p>The name is: {{ $name }}</p>
-    @endisset
+    @forelse ($tasks as $task)
+        <li>{{ $task->title }}</li>
+    @empty
+    <p>There are no tasks</p>
+    @endforelse
 </body>
 
 </html>
