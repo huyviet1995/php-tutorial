@@ -9,7 +9,9 @@
 <body>
     <h1>Hello, this is an index blade template</h1>
     @forelse ($tasks as $task)
-        <li>{{ $task->title }}</li>
+        <div class="">
+            <a href="{{ route('tasks.show', ['id' => $task->id]) }}">{{ $task->title }}</a>
+        </div>
     @empty
     <p>There are no tasks</p>
     @endforelse

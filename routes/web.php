@@ -70,7 +70,7 @@ Route::get('/', function () use ($tasks) {
     return view('index', [
         'tasks' => $tasks
     ]);
-});
+})->name('tasks.index');
 
 Route::get('/hello', function () {
     return 'Hello World';
@@ -84,6 +84,10 @@ Route::get('/hallo', function () {
 Route::get('/greet/{name}', function ($name) {
     return 'Hello ' . $name . "!";
 });
+
+Route::get('/{id}', function ($id) {
+    return 'One sinle task';
+})->name('tasks.show');
 
 Route::fallback(function () {
     return 'Still got somewhere...';
